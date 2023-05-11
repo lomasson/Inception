@@ -1,7 +1,5 @@
 #!/bin/sh
-# We need to stop mariadb external connection for avoid external docker to start without mariadb propely configure.  
 sed -i 's/0.0.0.0/localhost/'  /etc/mysql/mariadb.conf.d/50-server.cnf
-# Strangely, work without root information but still throw a error message 
 service mysql start 2>/dev/null
 until mysqladmin -u root -p$MARIADB_ROOT_PASSWORD ping 2>/dev/null
 do

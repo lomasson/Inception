@@ -1,14 +1,3 @@
-# FROM debian:buster
-# EXPOSE 443
-
-# RUN apt-get update
-# RUN apt install -y nginx
-# RUN apt install openssl
-# RUN mkdir /etc/nginx/certs
-# RUN openssl req -new -newkey rsa:2048 -days 365 -subj "/CN=lomasson.42.fr" -nodes -x509 -keyout /etc/nginx/certs/cert.key -out /etc/nginx/certs/cert.crt
-
-# CMD ["nginx", "-g", "daemon off;"]
-# escape=`
 FROM debian:buster
 RUN apt-get update && apt-get -y install nginx \
 		&& apt-get -y install openssl \
